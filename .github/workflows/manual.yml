@@ -1,26 +1,27 @@
-# This is a basic workflow that is manually triggered
-
-name: Manual workflow
+name: Create New App
 
 on: 
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      appName:
+        description: 'App Name'
         required: true
-        default: 'warning' 
+      framework:
+        description: 'Framework'     
+        required: true
+        default: 'Next.js' 
         type: choice
         options:
-        - info
-        - warning
-        - debug 
-      tags:
-        description: 'Test scenario tags'
-        required: false 
+        - Next.js
+        - Fastify
+        - React.js
+      createNewRepo:
+        description: 'Create New Repo?'
+        required: true 
         type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
+      repoName:
+        description: 'Your Repo Name (Will created if new repo)'
+        type: text
         required: true 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
